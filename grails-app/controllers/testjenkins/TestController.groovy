@@ -64,8 +64,15 @@ class TestController {
 		
 		
 		// This is an example itterating through files:
-		// $k =  keys being type
-		// $v = value = file names (including folder as jenkins does in logs)
+		// files:{"type":"WAR","name":"target/testmodaldynamix-0.1.war"}
+		// where key will be type or name
+		// value will by type of file and file name as per jenkins output in the build logs.
+		// you may wish to set :
+		// jenkins.parseBuildingWorkSpace = false
+		//jenkins.parseBuilding = false
+		// in config.groovy so that Building files also do not appear in :
+		//jenkins.parseDoneCreating = true
+
 		if (params.files) {
 			JSONObject files1=JSON.parse(params.files)
 				
