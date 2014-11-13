@@ -72,7 +72,9 @@ grails.project.dependency.resolution = {
         //compile ":less-asset-pipeline:1.7.0"
         //compile ":coffee-asset-pipeline:1.7.0"
         //compile ":handlebars-asset-pipeline:1.3.0.3"
+        compile ":jenjir:0.1"
+		compile ":jssh:0.24"
     }
 }
-grails.plugin.location.'jenkins' = "../grails-jenkins-plugin"
-grails.plugin.location.'jssh' = "../jssh"
+//grails.plugin.location.'jenjir' = "../grails-jenkins-plugin"
+//grails.plugin.location.'jssh' = "../jssh"
