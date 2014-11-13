@@ -57,7 +57,24 @@ class TestController {
 
 		// You will have to write a parser to grab file from below buildUrl
 		// something I may look into...... could be very custom tbh.. hence maybe not..
-		String file="testwschat-0.1.war"
+	//	String file="testwschat-0.1.war"
+	
+		// File was previously defined since this a now a more recent feature:
+		
+		
+		
+		// This is an example itterating through files:
+		// $k =  keys being type
+		// $v = value = file names (including folder as jenkins does in logs)
+		if (params.files) {
+			JSONObject files1=JSON.parse(params.files)
+				
+			files1.each { k,v->
+				println "-- FILE_TYPE: $k ||| FILE_NAME: $v"
+				
+	
+			}
+		}
 
 		String buildUrl=params.server+params.job+"/ws/target/"+file
 //String server=params.server
