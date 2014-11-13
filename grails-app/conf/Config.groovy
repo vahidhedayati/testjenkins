@@ -116,9 +116,122 @@ log4j.main = {
            'net.sf.ehcache.hibernate'
 }
 
-jenkins.processurl="http://localhost:8080/testjenkins/test/parseJenPlugin"
+jenkins.processurl=""
 jenkins.wsprocessname="Deploy"
 jenkins.wsprocessurl="http://localhost:8080/testjenkins/test/jsshconnect"
+
+jenkins.autosubmit="yes"
+
+jenkins.showhistory="yes"
+
+
+jenkins.sendtoJira='yes'
+
+jenkins.jiraServer='http://localhost:8181/'
+jenkins.jiraUser='jira'
+jenkins.jiraPass='jira'
+
+jenkins.jira.AccessUri="/browse/"
+
+
+/*
+ * There are various send types :
+ * comment -- adds the summary output as a comment to valid jira ticket
+ * customfield -- adds the summary output to provided customfield ID - please note customfield must have correct screen perms for it to work
+ * updatecustomfield -- gets current input if different to new input adds them together to customfield
+ * description -- updates ticket description with the summary
+ * comdesc -- updates ticket description and adds a comment both containing the summary
+ */
+jenkins.jiraSendType='comment'
+// If you have defined working option customfield then define the customfield id for this configuration item:
+//jenkins.customField='10010' // the id of your customfield
+
+
+// Auto submit wsprocess url ?
+jenkins.autosubmit = "yes"
+
+
+// This is an important option to enable
+// With this enabled - after a build has completed and has a result
+// So long as your jira details are correct
+// and the ticket convention is as below appears in changes logs...
+// Then this enabled with the jira info below should mean your build history should appear
+// under all logged tickets under changes screen of a given build id.
+jenkins.showsummary = "yes"
+
+
+
+
+
+/*
+* This is the url usually to access the ticket for viewing - used to test if ticket is valid
+* if not defined will default to /browse/
+*/
+jenkins.jira.AccessUri = "/browse/"
+
+
+/*
+ * There are various send types :
+ * comment -- adds the summary output as a comment to valid jira ticket
+ * customfield -- adds the summary output to provided customfield ID - please note customfield must have correct screen perms for it to work
+ * updatecustomfield -- gets current input if different to new input adds them together to customfield
+ * description -- updates ticket description with the summary
+ * comdesc -- updates ticket description and adds a comment both containing the summary
+ */
+jenkins.jiraSendType = 'customfield'
+// If you have defined working option customfield then define the customfield id for this configuration item:
+jenkins.customField = '12330' // the id of your customfield
+
+
+/*
+* API Api Info - send this as part of summary?
+*/
+jenkins.sendApi = true  // true/false - by default false
+// SendApi - sub fields:
+/* API ChangeSet - send this as part of summary?*/
+jenkins.sendChangeSet = true  // true/false - by default false
+/*API culprits - send this as part of summary?*/
+jenkins.sendCulprits = true  // true/false - by default false
+/*API full display name - send this as part of summary?*/
+jenkins.sendFdn = true  // true/false - by default false
+/*API Build Id - send this as part of summary?*/
+jenkins.sendBuildId = true  // true/false - by default false
+/*API Build UserID/Name - send this as part of summary?*/
+jenkins.sendBuildUser = true  // true/false - by default false
+
+/*
+* Jenkins BuildID Change Logs - send this as part of summary?
+*/
+jenkins.sendChanges = true  // true/false - by default false
+
+/*
+* Jenkins BuildID Specific parse Info - send this as part of summary?
+*/
+jenkins.sendParseConsole = true  // true/false - by default false
+/*LogParser Look for Building Work space ? send this as part of summary?*/
+jenkins.parseBuildingWorkSpace = true  // true/false - by default false
+/*LogParser Look for Building ? send this as part of summary?*/
+jenkins.parseBuilding = true  // true/false - by default false
+/*LogParser Look for Done Creating? send this as part of summary?*/
+jenkins.parseDoneCreating = true  // true/false - by default false
+/*LogParser Look for Last valid trans ? send this as part of summary?*/
+jenkins.parseLastTrans = true  // true/false - by default false
+
+
+/* Buttons on websocket page :
+* set these as you see here change to no if you wish
+* not for them to appear on the webpage.
+* you can override these values from within either taglib call too
+*/
+jenkins.summaryViewButtons = "yes"
+jenkins.summaryFileButton = "yes"
+jenkins.summaryChangesButton = "yes"
+
+jenkins.jiraButtons = "yes"
+jenkins.jiraOverwriteButton = "yes"
+jenkins.jiraAppendButton = "yes"
+jenkins.jiraCommentButton = "yes"
+
 
 jssh.USER = "mx1"
 jssh.PASS = ""
